@@ -59,13 +59,25 @@
 
 
 - (IBAction)onTouch:(id)sender {
+    [UIView animateWithDuration:2 animations:^{
+        
+        [(CircledButton*)sender setAlpha:0.5];
+
+        [(CircledButton*)sender setAlpha:1];
+        
+        [(CircledButton*)sender updateTitle];
+    }];
     
-    [(CircledButton*)sender updateTitle];
 }
 
 - (void) onButtonPressed
 {
-    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Button tapped!"
+                                                    message:@"Did you just tapped on a useless button?"
+                                                   delegate:self
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
 }
 
 
